@@ -31,6 +31,10 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 |Mask_pan_relaxed| mask_pan_relaxed('string') |
 |Mask_ssn| mask_ssn('string') |
 
+---
+## Mask inner
+ส่งกลับผลลัพธ์ที่มีการปกปิดเฉพาะส่วนในของสตริง สามารถเปลี่ยนตัวอักษรที่ใช้ในการปกปิดได้
+
 
 
 
