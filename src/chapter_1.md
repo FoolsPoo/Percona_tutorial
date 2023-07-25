@@ -31,6 +31,7 @@ Data Masking คือกระบวนการปกปิดข้อมู�
 
 ![Data Masking Technique.](../image/mindmap.png)
 
+![Data Masking .](../image/yasaka-pagoda-sannen-zaka-street-kyoto-japan.jpg)
 ---
 
 ## Docker
