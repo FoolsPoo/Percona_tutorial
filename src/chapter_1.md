@@ -29,7 +29,7 @@ Data Masking คือกระบวนการปกปิดข้อมู�
 
 โดยหลักๆจะมีอยู่ 13 วิธี
 
-![Data_Masking_Technique.](/percona_tutorial/image/mindmap.png)
+![Data Masking Technique.](../image/mindmap.png)
 
 ---
 
