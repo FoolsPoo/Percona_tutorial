@@ -30,8 +30,6 @@ Data Masking คือกระบวนการปกปิดข้อมู�
 โดยหลักๆจะมีอยู่ 13 วิธี
 
 ![Data Masking Technique.](../image/mindmap.png)
-
-![Data Masking .](../image/yasaka-pagoda-sannen-zaka-street-kyoto-japan.jpg)
 ---
 
 ## Docker
