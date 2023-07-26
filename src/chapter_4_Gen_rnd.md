@@ -3,13 +3,14 @@
 
 ## Table content
 
-- [Basic Data Masking](#03-basic_data_masking)
+- [Generate rnd](#04-generate_random_terms)
     - [Prepare](#เตรียมตัวก่อนทำการ-data-masking)
-    - [Data Masking](#data-masking)
-    - [Mask inner & outer](#mask-inner--outer)
-    - [Mask Pan](#mask-pan)
-    - [Mask Pan Relaxed](#mask-pan-relaxed)
-    - [Mask SSN](#mask-ssn)
+    - [Generate Type](#generate)
+    - [Generate Range](#generate-range)
+    - [Generate Email](#generate-email)
+    - [Generate Pan](#generate-pan)
+    - [Generate Phone](#generate-phone)
+    - [Generate SSN](#generate-ssn)
     
 ## เตรียมตัวก่อนทำการ Data Masking
 
@@ -28,7 +29,7 @@ Insert ข้อมูลลงไปในตาราง
 insert into sensative_data values (1,1234567890),(2,0987654321);
 ``````
 
-## Data Masking
+## Generate
 โดยการปกปิดตัวแบบ Data anomalyzation หรือ Masking out จะมีหลักๆอยู่ 5 ตัว
 
 |Masking Data  | Parameter |
