@@ -49,32 +49,28 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 |------------|----------------------|--------------------------|----|---------------|
 |gen_blacklist|fruit = { "apple"}, nut = {"wallnut"}|gen_blacklist(str, dictionary_name, replacement_dictionary_name)|select gen_blacklist('apple', 'fruit', 'nut');|wallnut|
 
-ทดลองใช้ Masking Inner & outer
+ทดลองใช้ Generate Blacklist
 
 ``````markdown
-SELECT id, 
-       hushhush as 'Original', 
-       MASK_INNER(convert(hushhush using binary),2,3) as 'Inner', 
-       MASK_OUTER(convert(hushhush using binary),3,3) as 'Outer' 
-FROM sensative_data;
+
 ``````
 ---
-## Mask pan
-ปกปิดหมายเลขบัญชี(PAN) โดยแทนที่ข้อมูลด้วย "X" ยกเว้นสี่ตัวสุดท้าย ข้อมูล PAN ต้องมีความยาว 15 ตัวอักษรหรือ 16 ตัวอักษร
+## Generate Dictionary
+สุ่มข้อมูล ที่อยู่ในใน Dictionary มาใช้
 
-|Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
-|------------|------------------------|-------------------------|----|---------------|
-|Mask_pan|123456789012345|mask_pan('string') |SELECT mask_inner('6307015589460',1,1);|XXXXXXXXXXX2345| 
+|Masking Type|terms ที่อยู่ใน dictionary|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
+|------------|----------------------|--------------------------|----|---------------|
+|gen_dictionary|name = {"mark"}|gen_dictionary(dictionary_name)|select gen_dictionary('name');|mark|
 
-ทดลองใช้ Mask pan
+ทดลองใช้ Generate Dictionary
 
 ---
-## Mask pan relaxed
+## Generate Dictionary Drop
 โชว์ข้อมูลแค่หกตัวแรกและตัวเลขสี่ตัวสุดท้าย สตริงที่เหลือจะถูกแทนที่ด้วย "X"
 
 |Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
 |------------|------------------------|-------------------------|----|---------------|
-|mask_pan_relaxed|123456789012345|mask_pan_relaxed('string') |SELECT mask_pan_relaxed('123456789012345');|123456XXXXX2345| 
+|gen_dicotionary_drop|test = {"test"}|gen_dictionary_drop(dictionary_name)|select gen_dictionary_drop('test');|Dictionary removed| 
 
 ทดลองใช้ Masking pan relaxed
 
@@ -84,7 +80,7 @@ FROM sensative_data;
 
 |Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
 |------------|------------------------|-------------------------|----|---------------|
-|mask_ssn|555-55-5555|mask_ssn('string')|SELECT mask_ssn('555-55-5555');|XXX-XX-5555| 
+|gen_dictionary_load|test = {"test"}|gen_dictionary_load(path, dictionary_name)|select gen_dictionary_load ('var/lib/mysql-files/test.txt', 'test');|Dictionary| 
 
 
 ``````markdown
