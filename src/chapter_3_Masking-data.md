@@ -71,7 +71,6 @@ FROM sensative_data;
 โชว์ข้อมูลแค่หกตัวแรกและตัวเลขสี่ตัวสุดท้าย สตริงที่เหลือจะถูกแทนที่ด้วย "X"
 
 |Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
-|------------|------------------------|-------------------------|----|---------------|
 |mask_pan_relaxed|123456789012345|mask_pan_relaxed('string') |SELECT mask_pan_relaxed('123456789012345');|123456XXXXX2345|
 
 ทดลองใช้ Masking pan relaxed
