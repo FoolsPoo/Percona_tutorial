@@ -47,44 +47,53 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 |------------|-------------------------|----|---------------|
 |gen_range|gen_range(lower, upper)|SELECT gen_range(10, 100);|เลขสุ่มระหว่าง 10 -100|
 
-ทดลองใช้ Masking Inner & outer
+ทดลองใช้ Gen range
 
 ``````markdown
-SELECT id, 
-       hushhush as 'Original', 
-       MASK_INNER(convert(hushhush using binary),2,3) as 'Inner', 
-       MASK_OUTER(convert(hushhush using binary),3,3) as 'Outer' 
-FROM sensative_data;
+
 ``````
 ---
-## Mask pan
-ปกปิดหมายเลขบัญชี(PAN) โดยแทนที่ข้อมูลด้วย "X" ยกเว้นสี่ตัวสุดท้าย ข้อมูล PAN ต้องมีความยาว 15 ตัวอักษรหรือ 16 ตัวอักษร
+## Generate email
+สร้างที่อยู่อีเมลแบบสุ่ม โดยมีโดเมนคือ example.com
 
-|Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
-|------------|------------------------|-------------------------|----|---------------|
-|Mask_pan|123456789012345|mask_pan('string') |SELECT mask_inner('6307015589460',1,1);|XXXXXXXXXXX2345| 
+|Generate Type|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
+|------------|-------------------------|----|---------------|
+|gen_rend_email|gen_rnd_email() |SELECT gen_rnd_email();|(อีเมล)@example.com| 
 
-ทดลองใช้ Mask pan
-
----
-## Mask pan relaxed
-โชว์ข้อมูลแค่หกตัวแรกและตัวเลขสี่ตัวสุดท้าย สตริงที่เหลือจะถูกแทนที่ด้วย "X"
-
-|Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
-|------------|------------------------|-------------------------|----|---------------|
-|mask_pan_relaxed|123456789012345|mask_pan_relaxed('string') |SELECT mask_pan_relaxed('123456789012345');|123456XXXXX2345| 
-
-ทดลองใช้ Masking pan relaxed
+ทดลองใช้ Gen email
 
 ---
-## Mask SSN
-โชว์ข้อมูลที่มองเห็นเฉพาะตัวเลขสี่ตัวสุดท้าย ข้อมูลที่เหลือจะถูกแทนที่ด้วย "X"
+## Generate pan
+สร้างหมายเลขบัญชีแบบสุ่ม ควรใช้ฟังก์ชันนี้เพื่อจุดประสงค์ในการทดสอบเท่านั้น
 
-|Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
+|Generate Type|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
 |------------|------------------------|-------------------------|----|---------------|
-|mask_ssn|555-55-5555|mask_ssn('string')|SELECT mask_ssn('555-55-5555');|XXX-XX-5555| 
+|gen_pan| SELECT gen_rnd_pan([size in integer])|SELECT gen_rnd_pan();|ตัวเลขแบบสุ่มตั้งแต่ 0 จนถึง 9 ทั้งหมด 15 จำนวน| 
 
+ทดลองใช้ Generate pan
 
+---
+## Generate phone
+สร้างหมายเลขโทรศัพท์ของสหรัฐอเมริกาแบบสุ่ม หมายเลขที่สร้างขึ้นจะเพิ่มรหัสโทรออก 1 และอยู่ในรหัสพื้นที่ 555 รหัสพื้นที่ 555 ใช้ไม่ได้กับหมายเลขโทรศัพท์ใดๆ ในสหรัฐอเมริกา
+
+|Masking Type|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
+|------------|------------------------|-------------------------|----|---------------|
+|gen_rnd_us_phone|gen_rnd_us_phone()|SELECT gen_rnd_us_phone();|เบอร์โทรในฟอร์แมท อเมริกา (1-555-xxx-xxxx)| 
+
+ ทดลองใช้ Generate phone
+``````markdown
+
+``````
+
+---
+## Generate SSN
+สร้างหมายเลขประกันสังคมของสหรัฐอเมริกาแบบสุ่มและไม่ถูกต้องในรูปแบบ AAA-BBB-CCCC ควรใช้ฟังก์ชันนี้เพื่อจุดประสงค์ในการทดสอบเท่านั้น
+
+|Masking Type|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
+|------------|------------------------|-------------------------|----|---------------|
+|gen_rnd_ssn|gen_rnd_ssn()|SELECT gen_rnd_ssn();|เลขประกันสังคมของ อเมริกา (xxx-xx-xxxx)| 
+
+ ทดลองใช้ Generate SSN
 ``````markdown
 
 ``````
