@@ -3,6 +3,13 @@
 
 ## Table content
 
+- [Basic Data Masking](#03-basic_data_masking)
+    - [Prepare](#เตรียมตัวก่อนทำการ-data-masking)
+    - [Data Masking](#data-masking)
+    - [Mask inner & outer](#mask-inner--outer)
+    - [Mask Pan](#mask-pan)
+    - [Mask Pan Relaxed](#mask-pan-relaxed)
+    - [Mask SSN](#mask-ssn)
 ## เตรียมตัวก่อนทำการ Data Masking
 
 เตรียมตัวก่อนทำการ Data Masking
