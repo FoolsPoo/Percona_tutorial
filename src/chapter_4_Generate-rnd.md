@@ -30,7 +30,7 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 ``````
 
 ## Generate
-โดยการปกปิดตัวแบบ Data anomalyzation หรือ Masking out จะมีหลักๆอยู่ 5 ตัว
+โดยการปกปิดตัวแบบ Generate จะมีอยู่ทั้งหมด 5 ตัว
 
 |Masking Data  | Parameter |
 |--------------|-------------|

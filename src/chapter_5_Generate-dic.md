@@ -1,5 +1,5 @@
-# 03-Generate_random_terms
-ปกปิดข้อมูลด้วยการ สุ่มข้อมูลจากชุดคำสั่งแบบสุ่ม เพื่อใช้ในการปกปิดข้อมุลจริง
+# 03-Generate_Dictionary
+ปกปิดข้อมูลด้วยการ สุ่มข้อมูลจากชุดคำสั่งแบบสุ่ม โดยนำข้อมููลมาจาก Dictionary ที่เราสร้างไว้ เพื่อใช้ในการปกปิดข้อมูลจริง
 
 ## Table content
 
@@ -27,26 +27,27 @@ Insert ข้อมูลลงไปในตาราง
 ``````markdown
 insert into sensative_data values (1,1234567890),(2,0987654321);
 ``````
+## Logic
+โดยการสุ่มด้วยวิธีนี้ใช้วิธีการสุ่มทั้งหมดจากความน่าจะเป็นในทุกๆรอบ กล่าวคือ หากมีข้อมูลทั้งหมด 100 ตัว เราจะต้องทำการสุ่ม 1 ใน 100 เสมอ ไม่ใช่ 1 ใน 100 แล้วไป 1 ใน 99 ทำให้ข้อมูลที่ออกมานั้นสามารถเกิดซ้ำได้ติดๆกัน การเพิ่ม ข้อมูลลงไปใน Dictionary จึงเป็นสิ่งสำคัญเพื่อทำให้การสุ่มนั้น เฉลี่ยและเกิดซ้ำได้ยากขึ้น 
 
-## Data Masking
-โดยการปกปิดตัวแบบ Data anomalyzation หรือ Masking out จะมีหลักๆอยู่ 5 ตัว
+## Generate Dictionary
+โดยการปกปิดตัวแบบ Generate Dictionary จะมีอยู่ทั้งหมด 2 วิธี โดยจะมีวิธีการนำเข้า และ ลบ เพิ่มขึ้นมา
 
 |Masking Data  | Parameter |
 |--------------|-------------|
-|Mask_inner| mask_inner('string, margin1, margin2, [character]) |
-|Mask_outer| mask_outer('string, margin1, margin2, [character]) |
-|Mask_pan| mask_pan('string') |
-|Mask_pan_relaxed| mask_pan_relaxed('string') |
-|Mask_ssn| mask_ssn('string') |
+|gen_blacklist| gen_blacklist(str, dictionary_name, replacement_dictionary_name) |
+|gen_dictionary| gen_dictionary(dictionary_name) |
+|gen_dictionary_drop| gen_dictionary_drop(dictionary_name) |
+|gen_dictionary_load| gen_dictionary_load(path, dictionary_name)|
+
 
 ---
-## Mask inner & outer
-inner ส่งกลับผลลัพธ์ที่มีการปกปิดเฉพาะส่วนในของสตริง สามารถเปลี่ยนตัวอักษรที่ใช้ในการปกปิดได้ outer ทำการปกปิดข้อมูลส่วนนอก แต่จะไม่ปกปิดข้อมูลส่วนด้านใน
+## Generate Blacklist
+แทนที่ข้อมูล ด้วย ข้อมูล จาก Dictionary อีกชื่อนึง
 
-|Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
-|------------|------------------------|-------------------------|----|---------------|
-|Mask_inner|6307015589460|mask_inner('string, margin1, margin2, [character])|SELECT mask_inner('6307015589460',1,1);|6XXXXXXXXXXX0|
-|Mask_outer|6307015583468|mask_outer('string, margin1, margin2, [character])|SELECT mask_outer('6307015583468',3,3);|XXX7015583XXX|
+|Masking Type|terms ที่อยู่ใน dictionary|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
+|------------|----------------------|--------------------------|----|---------------|
+|gen_blacklist|fruit = { "apple"}, nut = {"wallnut"}|gen_blacklist(str, dictionary_name, replacement_dictionary_name)|select gen_blacklist('apple', 'fruit', 'nut');|wallnut|
 
 ทดลองใช้ Masking Inner & outer
 
