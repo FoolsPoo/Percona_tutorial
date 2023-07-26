@@ -36,7 +36,7 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 ส่งกลับผลลัพธ์ที่มีการปกปิดเฉพาะส่วนในของสตริง สามารถเปลี่ยนตัวอักษรที่ใช้ในการปกปิดได้
 |Use case  Masking  Data|Expected Result|
 |-----------------------|---------------|
-|Mask_inner||||||
+|Mask_inner|6307015589460|mask_inner('string, margin1, margin2, [character])|SELECT mask_inner('6307015589460',1,1);|6XXXXXXXXXXX0|
 
 
 
