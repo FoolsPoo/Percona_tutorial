@@ -3,13 +3,7 @@
 
 ## Table content
 
-- [Basic Data Masking](#03-basic_data_masking)
-    - [Prepare](#เตรียมตัวก่อนทำการ-data-masking)
-    - [Data Masking](#data-masking)
-    - [Mask inner & outer](#mask-inner--outer)
-    - [Mask Pan](#mask-pan)
-    - [Mask Pan Relaxed](#mask-pan-relaxed)
-    - [Mask SSN](#mask-ssn)
+
     
 ## เตรียมตัวก่อนทำการ Data Masking
 
@@ -72,16 +66,17 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 |------------|------------------------|-------------------------|----|---------------|
 |gen_dicotionary_drop|test = {"test"}|gen_dictionary_drop(dictionary_name)|select gen_dictionary_drop('test');|Dictionary removed| 
 
-ทดลองใช้ Masking pan relaxed
+ทดลองใช้ Generate Dictionary Drop
 
 ---
-## Mask SSN
+## Generate Dictionary Load
 โชว์ข้อมูลที่มองเห็นเฉพาะตัวเลขสี่ตัวสุดท้าย ข้อมูลที่เหลือจะถูกแทนที่ด้วย "X"
 
 |Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
 |------------|------------------------|-------------------------|----|---------------|
 |gen_dictionary_load|test = {"test"}|gen_dictionary_load(path, dictionary_name)|select gen_dictionary_load ('var/lib/mysql-files/test.txt', 'test');|Dictionary| 
 
+ทดลองใช้ Generate Dictionary Load
 
 ``````markdown
 
