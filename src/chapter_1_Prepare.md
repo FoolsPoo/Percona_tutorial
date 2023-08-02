@@ -16,13 +16,15 @@
 
 ---
 
+## นำเข้าไฟล์ ด้วย mac
+
 OUTFILE Command
 
 เป็นคำสั่งที่เอาไว้ใช้ส่งออกข้อมูลในตารางของเราใน mysql 
 
 คำสั่งการนำเข้าไฟล์ข้อมูลจะเป็นแบบนี้
 
-```
+```bash
 SELECT (column title) FROM (table_name)
 INTO OUTFILE '(destination path/filename.txt)';
 ```
@@ -42,7 +44,7 @@ LINES TERMINATED BY '’ = การเข้าบรรทัดใหม่
 
 และนี่คือตัวอย่างการใช้คำสั่ง OUTFILE
 
-```
+```bash
 SELECT * FROM news 
 INTO OUTFILE '/var/lib/mysql-files/newer.txt' 
 FIELDS TERMINATED BY ',' 
@@ -62,7 +64,7 @@ LINES TERMINATED BY '\r\n';
 
 รูปแบบคำสั่ง docker ps กรณีส่งออกไฟล์จะเป็นแบบนี้
 
-```
+```bash
 docker cp (container-id):(file path/filename) (destination path)
 ```
 
@@ -72,7 +74,7 @@ docker cp (container-id):(file path/filename) (destination path)
 
 ยกตัวอย่างการใช้คำสั่งก็ตามนี้เลย
 
-```
+```bash
 docker cp c832e6d2ef9d:/var/lib/mysql-files/newer.txt /Users/captain/Desktop
 ```
 
@@ -86,7 +88,7 @@ INFILE Command
 
 คำสั่งการนำเข้าไฟล์ข้อมูลจะเป็นแบบนี้
 
-```
+```bash
 LOAD DATA INFILE '(file path)' 
 INTO TABLE (table name);
 ```
@@ -107,7 +109,7 @@ LINES TERMINATED BY '’ = การเข้าบรรทัดใหม่
 
 ยกตัวอย่างการใช้คำสั่งก็ตามภาพเลยครับ
 
-```
+```bash
 LOAD DATA INFILE '/var/lib/mysql-files/news.sql' 
 INTO TABLE news 
 FIELDS TERMINATED BT ‘,’
@@ -123,7 +125,7 @@ IGNORE 1 ROWS;
 
 รูปแบบคำสั่ง docker ps กรณีนำเข้าไฟล์จะเป็นแบบนี้
 
-```
+```bash
 docker cp (filename) (container-id):(destination path)
 ```
 
@@ -133,7 +135,7 @@ docker cp (filename) (container-id):(destination path)
 
 ยกตัวอย่างการใช้คำสั่งก็ตามนี้เลย
 
-```
+```bash
 docker cp news.sql c832e6d2ef9d:/var/lib/mysql-files
 ```
 
