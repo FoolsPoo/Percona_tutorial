@@ -18,7 +18,7 @@
 
 ## นำเข้าไฟล์ ด้วย mac
 
-OUTFILE Command
+## OUTFILE Command
 
 เป็นคำสั่งที่เอาไว้ใช้ส่งออกข้อมูลในตารางของเราใน mysql 
 
@@ -58,10 +58,6 @@ LINES TERMINATED BY '\r\n';
 
 แต่กรณีของ Mac จะไม่มีหน้า files ให้เห็น เราจะใช้คำสั่ง docker cp ลากไฟล์ออกมาแทน
 
-
-
-
-
 รูปแบบคำสั่ง docker ps กรณีส่งออกไฟล์จะเป็นแบบนี้
 
 ```bash
@@ -81,8 +77,7 @@ docker cp c832e6d2ef9d:/var/lib/mysql-files/newer.txt /Users/captain/Desktop
 เท่านี้เราก็ส่งออกไฟล์ได้สำเร็จแล้ว สามารถกดเข้าดูไฟล์เช็คได้เลยว่าตรงหรือไม่
 
 
-
-INFILE Command
+## INFILE Command
 
 เป็นคำสั่งที่เอาไว้ใช้นำเข้าไฟล์ข้อมูลลงในตารางของเราใน mysql 
 
@@ -143,3 +138,34 @@ docker cp news.sql c832e6d2ef9d:/var/lib/mysql-files
 
 ---
 วิธีนำเข้าโดยใช้ผ่านระบบ window
+
+สำหรับฝั่ง Window ให้หา path ของ secure-file-priv ก่อนว่าอยู่ที่ไหน โดยใช้คำสั่ง
+
+``````markdown
+show variables like "secure_file_priv"; 
+``````
+หรือ
+``````markdown
+SELECT @@global.secure_file_priv;
+``````
+เราจะได้ Path ของตัว ***secure-file-priv*** มา
+
+และหลังจากที่เตรียม ไฟล์ text ที่เราจะนำมาใช้งานแล้ว ให้นำเอามาใส่ใน path ที่ ***secure-file-priv*** อยู่ใน Docker
+
+และเราจะ load เข้าโดยใช้คำสั่ง
+
+``````markdown
+SELECT gen_dictionary_load('/var/lib/mysql-files/mydict','mydict');
+``````
+
+โดย **mydict** แรกคือชื่อไฟล์ที่ใส่เข้าไป และ **mydict** หลังคือชื่อ dictionary ที่เราจะตั้ง
+
+หากขึ้น
+``````markdown
++---------------------------------------------------------------+
+| gen_dictionary_load('/var/lib/mysql-files/fruit.txt','fruit') |
++---------------------------------------------------------------+
+| Dictionary load success                                       |
++---------------------------------------------------------------+
+``````
+ก็ถือว่าสำเร็จแล้ว 
