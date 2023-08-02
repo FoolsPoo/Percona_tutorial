@@ -51,8 +51,10 @@ almond
 ทดลองใช้ Generate Blacklist
 
 ``````markdown
-
+SELECT gen_blacklist('apple', 'fruit', 'nut');
 ``````
+โดย apple คือ str ที่อยู่ใน fruit โดยจะถูกแทนที่ด้วย nut แบบสุ่ม
+
 ---
 ## Generate Dictionary
 สุ่มข้อมูล ที่อยู่ในใน Dictionary มาใช้
