@@ -103,6 +103,11 @@ select mask_pan(cc) from employee;
 |mask_pan_relaxed|123456789012345|mask_pan_relaxed('string') |SELECT mask_pan_relaxed ('123456789012345');|123456XXXXX2345|
 
 ทดลองใช้ Masking pan relaxed
+
+``````markdown
+select mask_pan_relaxed(cc) from employee;
+``````
+
 ---
 
 ``````markdown
