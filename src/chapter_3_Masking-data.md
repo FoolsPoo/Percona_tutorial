@@ -7,9 +7,9 @@
     - [Prepare](#เตรียมตัวก่อนทำการ-data-masking)
     - [Data Masking](#data-masking)
     - [Mask inner & outer](#mask-inner--outer)
+    - [Mask SSN](#mask-ssn)
     - [Mask Pan](#mask-pan)
     - [Mask Pan Relaxed](#mask-pan-relaxed)
-    - [Mask SSN](#mask-ssn)
 ## เตรียมตัวก่อนทำการ Data Masking
 
 เตรียมตัวก่อนทำการ Data Masking
@@ -57,6 +57,27 @@ SELECT id,
 FROM sensative_data;
 ``````
 ---
+## Mask SSN
+โชว์ข้อมูลที่มองเห็นเฉพาะตัวเลขสี่ตัวสุดท้าย ข้อมูลที่เหลือจะถูกแทนที่ด้วย "X"
+
+|Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
+|------------|------------------------|-------------------------|----|---------------|
+|mask_ssn|555-55-5555|mask_ssn('string')|SELECT mask_ssn('555-55-5555');|XXX-XX-5555| 
+
+ทดลองใช้ Mask SSN
+``````markdown
+create table employee (id int, ssn char(11));
+``````
+``````markdown
+insert into employee values (1,'123-12-1234'), (2,'22-222-2222'),(3,'99-999-9999');
+``````
+``````markdown
+select id, 
+       name,  
+       mask_ssn(ssn) as 'Masked SSN' 
+from employee;
+``````
+---
 ## Mask pan
 ปกปิดหมายเลขบัญชี(PAN) โดยแทนที่ข้อมูลด้วย "X" ยกเว้นสี่ตัวสุดท้าย ข้อมูล PAN ต้องมีความยาว 15 ตัวอักษรหรือ 16 ตัวอักษร
 
@@ -65,7 +86,15 @@ FROM sensative_data;
 |Mask_pan|123456789012345|mask_pan('string') |SELECT mask_inner('6307015589460',1,1);|XXXXXXXXXXX2345| 
 
 ทดลองใช้ Mask pan
-
+``````markdown
+alter table employee add column cc char(16);
+``````
+``````markdown
+update employee set cc = "1234123412341234";
+``````
+``````markdown
+select mask_pan(cc) from employee;
+``````
 ---
 ## Mask pan relaxed
 โชว์ข้อมูลแค่หกตัวแรกและตัวเลขสี่ตัวสุดท้าย สตริงที่เหลือจะถูกแทนที่ด้วย "X"
@@ -75,15 +104,7 @@ FROM sensative_data;
 |mask_pan_relaxed|123456789012345|mask_pan_relaxed('string') |SELECT mask_pan_relaxed ('123456789012345');|123456XXXXX2345|
 
 ทดลองใช้ Masking pan relaxed
-
 ---
-## Mask SSN
-โชว์ข้อมูลที่มองเห็นเฉพาะตัวเลขสี่ตัวสุดท้าย ข้อมูลที่เหลือจะถูกแทนที่ด้วย "X"
-
-|Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
-|------------|------------------------|-------------------------|----|---------------|
-|mask_ssn|555-55-5555|mask_ssn('string')|SELECT mask_ssn('555-55-5555');|XXX-XX-5555| 
-
 
 ``````markdown
 
