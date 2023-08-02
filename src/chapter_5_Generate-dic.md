@@ -7,20 +7,25 @@
     
 ## เตรียมตัวก่อนทำการ Data Masking
 
-เตรียมตัวก่อนทำการ Data Masking
-``````markdown
-INSTALL PLUGIN data_masking SONAME 'data_masking.so';
-``````
+เตรียม ไฟล์ text fruit และ nut ที่ในไฟล์มี terms พวกนี้
 
-สร้าง ตารางข้อมูล
-``````markdown
-create table sensative_data (id int, hushhush bigint);
-``````
+fruit
+```bash
 
-Insert ข้อมูลลงไปในตาราง
-``````markdown
-insert into sensative_data values (1,1234567890),(2,0987654321);
-``````
+apple
+berry
+pieapple
+
+```
+
+nut
+```bash
+
+wallnut
+peanut
+almond
+
+```
 ## Logic
 โดยการสุ่มด้วยวิธีนี้ใช้วิธีการสุ่มทั้งหมดจากความน่าจะเป็นในทุกๆรอบ กล่าวคือ หากมีข้อมูลทั้งหมด 100 ตัว เราจะต้องทำการสุ่ม 1 ใน 100 เสมอ ไม่ใช่ 1 ใน 100 แล้วไป 1 ใน 99 ทำให้ข้อมูลที่ออกมานั้นสามารถเกิดซ้ำได้ติดๆกัน การเพิ่ม ข้อมูลลงไปใน Dictionary จึงเป็นสิ่งสำคัญเพื่อทำให้การสุ่มนั้น เฉลี่ยและเกิดซ้ำได้ยากขึ้น 
 
