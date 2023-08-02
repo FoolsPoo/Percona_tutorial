@@ -73,7 +73,6 @@ insert into employee values (1,'123-12-1234'), (2,'22-222-2222'),(3,'99-999-9999
 ``````
 ``````markdown
 select id, 
-       name,  
        mask_ssn(ssn) as 'Masked SSN' 
 from employee;
 ``````
