@@ -8,8 +8,8 @@
     - [Generate DIctionary type](#Generate-Dictionary)
     - [Generate Blacklist](#Generate-Blacklist)
     - [Generate Dictionary](#Generate-Dictionary)
-    - [Generate Phone](#generate-phone)
-    - [Generate SSN](#generate-ssn)
+    - [Generate Dictionary Drop](#Generate-Dictionary-Drop)
+    - [Generate Dictionary Load](#Generate-Dictionary-Load)
 
     
 ## เตรียมตัวก่อนทำการ Data Masking
@@ -81,7 +81,7 @@ select gen_dictionary('name');
 
 ---
 ## Generate Dictionary Drop
-โชว์ข้อมูลแค่หกตัวแรกและตัวเลขสี่ตัวสุดท้าย สตริงที่เหลือจะถูกแทนที่ด้วย "X"
+ลบ Dictionary ที่มีอยู่ออกจาก Database
 
 |Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
 |------------|------------------------|-------------------------|----|---------------|
@@ -94,7 +94,7 @@ select gen_dictionary_drop('name');
 
 ---
 ## Generate Dictionary Load
-โชว์ข้อมูลที่มองเห็นเฉพาะตัวเลขสี่ตัวสุดท้าย ข้อมูลที่เหลือจะถูกแทนที่ด้วย "X"
+นำเข้า Dictionary ที่อยู่ใน Docker เข้ามาใน database
 
 |Masking Type|ข้อมูลที่ใช้กก่อนทำการ Masking|Parameter ที่ใช้ทำการ Masking|Code|Expected Result|
 |------------|------------------------|-------------------------|----|---------------|
