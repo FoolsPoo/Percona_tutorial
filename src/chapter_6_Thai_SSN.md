@@ -52,6 +52,8 @@ ref:https://www.wongnai.com/articles/meaning-of-id-card-number?ref=ct
 
 ## Thai SSN randomizer
 
+คือคำสั่งที่ใช้เพื่อ สุ่มเลขบัตรประชาชนตามจำนวนที่เราต้องการ ให้อยู่ในรูปแบบ text ไฟล์เพื่อสะดวกต่อการนำไปใช้ในการทำ data masking
+
 ```bash
 import random
 
@@ -84,7 +86,7 @@ def calculate_checksum(id_digits):
 if __name__ == "__main__":
    # Generate 5 random Thai Citizen ID-like numbers
    generated_ids = []
-   for _ in range(100000):
+   for _ in range(5):
        thai_id = generate_random_thai_citizen_id()
        generated_ids.append(thai_id)
 
@@ -94,6 +96,16 @@ if __name__ == "__main__":
            file.write(thai_id + "\n")
 ```
 สิ่งที่ต้องแก้ในชุดคำสั่งนี้จะมี 
+
+```bash
+"/your/path/file.txt"
+```
+ที่อยู่ของไฟล์ที่ต้องการเขียนลง
+
+```bash
+for _ in range(5):
+```
+โดยเลข 5 คือจำนวนที่เราต้องการสุ่ม สามารถเปลี่ยนเป็นจำนวนอื่นๆได้ตามความเหมาะสม
 
 โดย คำสั่งนี้จำประกอบไปด้วย การสุ่ม SSN ของไทย และ จบท้ายด้วยการเขียนลงไปใน Text ไฟล์ เพื่อให้พร้อมต่อการนำมาใช้กับ Dictionary ของ Percona 
 
