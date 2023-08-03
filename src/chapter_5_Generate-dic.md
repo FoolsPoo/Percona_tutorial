@@ -26,6 +26,8 @@ peanut
 almond
 
 ```
+และเพิ่ม Dictionary name ลงไป โดยสามารถใช้ name.txt ที่อยู่ใน github นี้ได้เลย
+
 ## Logic
 โดยการสุ่มด้วยวิธีนี้ใช้วิธีการสุ่มทั้งหมดจากความน่าจะเป็นในทุกๆรอบ กล่าวคือ หากมีข้อมูลทั้งหมด 100 ตัว เราจะต้องทำการสุ่ม 1 ใน 100 เสมอ ไม่ใช่ 1 ใน 100 แล้วไป 1 ใน 99 ทำให้ข้อมูลที่ออกมานั้นสามารถเกิดซ้ำได้ติดๆกัน การเพิ่ม ข้อมูลลงไปใน Dictionary จึงเป็นสิ่งสำคัญเพื่อทำให้การสุ่มนั้น เฉลี่ยและเกิดซ้ำได้ยากขึ้น 
 
@@ -66,6 +68,9 @@ SELECT gen_blacklist('apple', 'fruit', 'nut');
 |gen_dictionary|name = {"mark"}|gen_dictionary(dictionary_name)|select gen_dictionary('name');|mark|
 
 ทดลองใช้ Generate Dictionary
+``````markdown
+select gen_dictionary('name');
+``````
 
 ---
 ## Generate Dictionary Drop
@@ -76,6 +81,9 @@ SELECT gen_blacklist('apple', 'fruit', 'nut');
 |gen_dicotionary_drop|test = {"test"}|gen_dictionary_drop(dictionary_name)|select gen_dictionary_drop('test');|Dictionary removed| 
 
 ทดลองใช้ Generate Dictionary Drop
+``````markdown
+select gen_dictionary_drop('name');
+``````
 
 ---
 ## Generate Dictionary Load
@@ -88,5 +96,5 @@ SELECT gen_blacklist('apple', 'fruit', 'nut');
 ทดลองใช้ Generate Dictionary Load
 
 ``````markdown
-
+select gen_dictionary_load ('var/lib/mysql-files/name.txt', 'name');
 ``````
