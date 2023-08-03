@@ -2,7 +2,14 @@
 ปกปิดข้อมูลด้วยการ สุ่มข้อมูลจากชุดคำสั่งแบบสุ่ม โดยนำข้อมููลมาจาก Dictionary ที่เราสร้างไว้ เพื่อใช้ในการปกปิดข้อมูลจริง
 
 ## Table content
-
+- [Generate rnd dic](#05-Generate_Dictionary)
+    - [Prepare](#เตรียมตัวก่อนทำการ-Data-Masking)
+    - [Logic การสุ่ม](#Logic)
+    - [Generate DIctionary type](#Generate-Dictionary)
+    - [Generate Blacklist](#Generate-Blacklist)
+    - [Generate Dictionary](#Generate-Dictionary)
+    - [Generate Phone](#generate-phone)
+    - [Generate SSN](#generate-ssn)
 
     
 ## เตรียมตัวก่อนทำการ Data Masking
