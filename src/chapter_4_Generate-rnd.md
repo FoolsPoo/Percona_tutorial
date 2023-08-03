@@ -14,21 +14,6 @@
     
 ## เตรียมตัวก่อนทำการ Data Masking
 
-เตรียมตัวก่อนทำการ Data Masking
-``````markdown
-INSTALL PLUGIN data_masking SONAME 'data_masking.so';
-``````
-
-สร้าง ตารางข้อมูล
-``````markdown
-create table sensative_data (id int, hushhush bigint);
-``````
-
-Insert ข้อมูลลงไปในตาราง
-``````markdown
-insert into sensative_data values (1,1234567890),(2,0987654321);
-``````
-
 ## Generate
 โดยการปกปิดตัวแบบ Generate จะมีอยู่ทั้งหมด 5 ตัว
 
@@ -51,7 +36,7 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 ทดลองใช้ Gen range
 
 ``````markdown
-
+select gen_range(10,100);
 ``````
 ---
 ## Generate email
@@ -62,6 +47,9 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 |gen_rend_email|gen_rnd_email() |SELECT gen_rnd_email();|(อีเมล)@example.com| 
 
 ทดลองใช้ Gen email
+``````markdown
+SELECT gen_rnd_email();
+``````
 
 ---
 ## Generate pan
@@ -72,6 +60,9 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 |gen_pan| SELECT gen_rnd_pan([size in integer])|SELECT gen_rnd_pan();|ตัวเลขแบบสุ่มตั้งแต่ 0 จนถึง 9 ทั้งหมด 15 จำนวน| 
 
 ทดลองใช้ Generate pan
+``````markdown
+select gen_rnd_pan();
+``````
 
 ---
 ## Generate phone
@@ -83,7 +74,7 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 
  ทดลองใช้ Generate phone
 ``````markdown
-
+SELECT gen_rnd_us_phone();
 ``````
 
 ---
@@ -96,5 +87,5 @@ insert into sensative_data values (1,1234567890),(2,0987654321);
 
  ทดลองใช้ Generate SSN
 ``````markdown
-
+SELECT gen_rnd_ssn();
 ``````
