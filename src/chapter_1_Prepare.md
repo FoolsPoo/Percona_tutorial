@@ -1,12 +1,12 @@
 # Prepare
 
-จะประกอบไปด้วยการเตรียมข้อมูลเพื่อใช้ในการทดสอบเบื้องต้น
+จะประกอบไปด้วยการเตรียมข้อมูลเพื่อใช้ในการทดสอบเบื้องต้น โดยที่จะเป็นการนำไฟล์ Dictionary เข้าไปในตัว Percona เพื่อใช้ในการ Masking Dictionary คือการนำข้อมูลจากใน Dic มาใช้แทนข้อมูลจริง
 
 ## Course Overview
 
 - [Percona Data Masking Tutorial](#percona-data-masking-tutorial)
     - [Concept](#concept)
-    - [Data Masking Technique](#data-masking-technique)
+    - [MAC](#นำเข้าไฟล์-ด้วย-mac)
     - [Docker](#docker)
 ---
 
