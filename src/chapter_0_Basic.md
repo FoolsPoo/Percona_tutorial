@@ -1,6 +1,6 @@
 # Percona Data Masking Tutorial
 
-จะประกอบไปด้วยเนื้อหาพื้นฐานและ การทำ masking เบื้องต้น
+จะประกอบไปด้วยเนื้อหาพื้นฐาน และ การทำ masking เบื้องต้น
 
 ## Course Overview
 
