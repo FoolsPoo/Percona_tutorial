@@ -56,6 +56,12 @@ docker run --name container-name -e MYSQL_ROOT_PASSWORD=secret -d percona/percon
 ```
 โดย container-name คือชื่อ container ที่ต้องการ PASSWORD=secret secret คือรหัสผ่าน และ tag คือ tag ของตัวนั้น
 
+ตัวอย่าง
+
+```rust
+docker run --name percona-server -e MYSQL_ROOT_PASSWORD=root -d percona/percona-server:8.0
+```
+
 เช็ค Container ID เพื่อใช้เข้า Database
 
 ```rust
