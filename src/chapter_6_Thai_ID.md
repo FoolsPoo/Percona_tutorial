@@ -6,7 +6,7 @@
 - [Thai National ID](#06-THAI-NATIONAL-ID-CARD)
     - [Logic](#Logic-ของเลขประจำตัวประชาชน-คนไทย)
     - [การทำงานของการสุ่ม](#การทำงานของ-การสุ่ม-บัตรประจำตัวประชาชนประเทศไทย)
-    - [Thai National ID Card random](#Thai-National-ID-Card-randomizer)
+    - [Thai National ID Card random](#Thai-National-ID-Card-random)
     - [เช็คเลขบัตรประชาชน](#เช็คเลข-ID)
     - [ข้อควรระวัง](#ข้อควรระวัง)
 
