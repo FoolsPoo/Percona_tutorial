@@ -57,7 +57,7 @@
 
 ref:https://www.wongnai.com/articles/meaning-of-id-card-number?ref=ct
 
-## Thai SSN randomizer
+## Thai National ID Card random
 
 คือคำสั่งที่ใช้เพื่อ สุ่มเลขบัตรประชาชนตามจำนวนที่เราต้องการ ให้อยู่ในรูปแบบ text ไฟล์เพื่อสะดวกต่อการนำไปใช้ในการทำ data masking
 
