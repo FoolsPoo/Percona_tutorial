@@ -3,7 +3,7 @@
 การเปลี่ยนเลขประจำตัวบัตรประชาชน เพื่อปกปิดเลขประจำตัวเดิมเพื่อเพิ่มความเป็นส่วนตัวกับผู้ใช้งาน 
 
 ## Table content
-- [Thai SSN](#06-THAI-NATIONAL-ID-CARD)
+- [Thai National ID](#06-THAI-NATIONAL-ID-CARD)
     - [Logic](#Logic-ของเลขประจำตัวประชาชน-คนไทย)
     - [การทำงานของการสุ่ม](#การทำงานของ-การสุ่ม-บัตรประจำตัวประชาชนประเทศไทย)
     - [Thai National ID Card random](#Thai-National-ID-Card-randomizer)
